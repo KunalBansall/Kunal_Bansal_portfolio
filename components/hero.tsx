@@ -1,16 +1,16 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
-import { motion } from "framer-motion"
-import { ArrowDown, Download } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { ArrowDown, Download } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export default function Hero() {
-  const [isVisible, setIsVisible] = useState(false)
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    setIsVisible(true)
-  }, [])
+    setIsVisible(true);
+  }, []);
 
   return (
     <section
@@ -37,7 +37,8 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="text-xl md:text-2xl text-foreground/80 mb-8"
         >
-          Software Development Engineer | Currently working on React Native & Android Development
+          Software Development Engineer | Currently working on React Native &
+          Android Development
         </motion.h2>
 
         <motion.div
@@ -49,11 +50,18 @@ export default function Hero() {
           <Button asChild variant="default" className="group">
             <a href="#contact">
               Get in Touch
-              <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+              <span className="ml-2 group-hover:translate-x-1 transition-transform">
+                →
+              </span>
             </a>
           </Button>
+
           <Button asChild variant="outline" className="group">
-            <a href="/resume.pdf" download="Kunal_Bansal_Resume.pdf" className="flex items-center">
+            <a
+              href="/KunalBansal_Resume.pdf"
+              download="Kunal_Bansal_Resume.pdf"
+              className="flex items-center"
+            >
               Download Resume
               <Download className="ml-2 h-4 w-4 group-hover:translate-y-1 transition-transform" />
             </a>
@@ -90,6 +98,14 @@ export default function Hero() {
           >
             LinkedIn
           </a>
+          <a
+            href="https://www.geeksforgeeks.org/user/kunal76bansal/?ref=header_profile"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-foreground/70 hover:text-primary transition-colors"
+          >
+            GeekForGeeks
+          </a>
         </motion.div>
       </motion.div>
 
@@ -109,6 +125,5 @@ export default function Hero() {
         </a>
       </motion.div>
     </section>
-  )
+  );
 }
-

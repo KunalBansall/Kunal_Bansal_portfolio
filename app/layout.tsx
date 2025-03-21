@@ -11,7 +11,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })
 export const metadata: Metadata = {
   title: "Kunal Bansal | Software Development Engineer",
   description: "Portfolio website of Kunal Bansal, Software Development Engineer",
-    generator: 'v0.dev'
+  generator: "v0.dev",
 }
 
 export default function RootLayout({
@@ -22,6 +22,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Favicon */}
+        <link rel="icon" href="/favicon.png" type="image/png" />
+
+        {/* Google Font */}
         <link
           href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
           rel="stylesheet"
@@ -37,6 +41,4 @@ export default function RootLayout({
   )
 }
 
-
-
-import './globals.css'
+import "./globals.css"
