@@ -58,8 +58,8 @@ export default function Hero() {
 
           <Button asChild variant="outline" className="group">
             <a
-              href="/KunalBansal_Resume.pdf"
-              download="Kunal_Bansal_Resume.pdf"
+              href="/Kunal_Bansal.pdf"
+              download="Kunal_Bansal.pdf"
               className="flex items-center"
             >
               Download Resume
