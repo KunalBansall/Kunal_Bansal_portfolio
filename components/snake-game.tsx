@@ -172,8 +172,8 @@ export default function SnakeGame() {
   }, [handleKeyPress])
 
   return (
-    <div className="flex flex-col items-center justify-center p-4">
-      <div className="bg-card/30 backdrop-blur-lg rounded-2xl p-8 shadow-xl border border-primary/10">
+    <div className="flex flex-col items-center justify-center p-2 sm:p-4">
+      <div className="bg-card/30 backdrop-blur-lg rounded-2xl p-4 sm:p-8 shadow-xl border border-primary/10 w-full max-w-md">
         <div className="text-center mb-6">
           <h1 className="text-4xl font-bold mb-2 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
             Snake Game
@@ -192,12 +192,13 @@ export default function SnakeGame() {
 
         <div className="relative">
           <div 
-            className="grid gap-1 bg-background/50 p-4 rounded-xl border-2 border-primary/30 cursor-pointer"
+            className="grid gap-1 bg-background/50 p-2 sm:p-4 rounded-xl border-2 border-primary/30 cursor-pointer"
             onClick={handleGameClick}
             style={{ 
               gridTemplateColumns: `repeat(${GRID_SIZE}, 1fr)`,
-              width: '400px',
-              height: '400px'
+              width: '100%',
+              aspectRatio: '1/1',
+              maxWidth: '400px'
             }}
           >
             {Array.from({ length: GRID_SIZE * GRID_SIZE }).map((_, index) => {
@@ -233,19 +234,19 @@ export default function SnakeGame() {
 
           {gameOver && (
             <div className="absolute inset-0 bg-background/80 backdrop-blur-sm flex items-center justify-center rounded-xl cursor-pointer" onClick={handleGameClick}>
-              <div className="text-center">
-                <h2 className="text-3xl font-bold mb-2 text-primary">Game Over!</h2>
-                <p className="text-xl mb-4">Final Score: {score}</p>
-                <p className="text-sm text-muted-foreground">Click to play again</p>
+              <div className="text-center p-2">
+                <h2 className="text-2xl sm:text-3xl font-bold mb-2 text-primary">Game Over!</h2>
+                <p className="text-lg sm:text-xl mb-2 sm:mb-4">Final Score: {score}</p>
+                <p className="text-xs sm:text-sm text-muted-foreground">Click to play again</p>
               </div>
             </div>
           )}
 
           {!gameStarted && !gameOver && (
             <div className="absolute inset-0 bg-background/80 backdrop-blur-sm flex items-center justify-center rounded-xl cursor-pointer" onClick={handleGameClick}>
-              <div className="text-center">
-                <h2 className="text-2xl font-bold mb-4 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">Ready to Play?</h2>
-                <p className="text-sm text-muted-foreground mb-2">Click to start</p>
+              <div className="text-center p-2">
+                <h2 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-4 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">Ready to Play?</h2>
+                <p className="text-xs sm:text-sm text-muted-foreground mb-1 sm:mb-2">Click to start</p>
                 <p className="text-xs text-muted-foreground/80">Use arrow keys to control</p>
               </div>
             </div>
@@ -253,16 +254,16 @@ export default function SnakeGame() {
 
           {isPaused && gameStarted && !gameOver && (
             <div className="absolute inset-0 bg-background/80 backdrop-blur-sm flex items-center justify-center rounded-xl cursor-pointer" onClick={handleGameClick}>
-              <div className="text-center">
-                <h2 className="text-2xl font-bold mb-2 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">Paused</h2>
-                <p className="text-sm text-muted-foreground">Click to continue</p>
+              <div className="text-center p-2">
+                <h2 className="text-xl sm:text-2xl font-bold mb-1 sm:mb-2 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">Paused</h2>
+                <p className="text-xs sm:text-sm text-muted-foreground">Click to continue</p>
               </div>
             </div>
           )}
         </div>
 
-        <div className="mt-6 text-center">
-          <div className="text-sm text-muted-foreground space-y-1">
+        <div className="mt-4 sm:mt-6 text-center">
+          <div className="text-xs sm:text-sm text-muted-foreground space-y-1">
             <p>🎮 Arrow keys to move</p>
             <p>⏸️ Click to pause/unpause</p>
             <p>🎯 Eat the food to grow</p>

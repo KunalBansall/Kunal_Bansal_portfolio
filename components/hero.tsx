@@ -72,7 +72,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: isVisible ? 1 : 0 }}
           transition={{ duration: 0.8, delay: 1.4 }}
-          className="flex justify-center gap-6 mb-12"
+          className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-12"
         >
           <a
             href="https://leetcode.com/u/kunalbansal7670/"
