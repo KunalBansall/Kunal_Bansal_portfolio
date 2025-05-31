@@ -106,6 +106,14 @@ export default function Hero() {
           >
             GeekForGeeks
           </a>
+          <a
+            href="https://www.buymeacoffee.com/kunalbansal"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-foreground/70 hover:text-primary transition-colors"
+          >
+            BuyMeACoffee ☕
+          </a>
         </motion.div>
       </motion.div>
 

@@ -12,6 +12,7 @@ const navItems = [
   { name: "Education", href: "#education" },
   { name: "Projects", href: "#projects" },
   { name: "Skills", href: "#skills" },
+  // { name: "Snake Game", href: "#snake-game" },
   { name: "Contact", href: "#contact" },
 ]
 
