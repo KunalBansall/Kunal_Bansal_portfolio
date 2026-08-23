@@ -37,9 +37,12 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="text-xl md:text-2xl text-foreground/80 mb-8"
         >
-          Software Development Engineer | Currently working on React Native &
-          Android Development
+          Full-Stack Software Engineer | React, TypeScript & Node.js
         </motion.h2>
+        <p className="mx-auto mb-8 max-w-3xl text-base text-foreground/70 md:text-lg">
+          I build secure, scalable SaaS and enterprise products across the frontend and backend,
+          with 2+ years of experience shipping production software for real users.
+        </p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -64,6 +67,12 @@ export default function Hero() {
             >
               Download Resume
               <Download className="ml-2 h-4 w-4 group-hover:translate-y-1 transition-transform" />
+            </a>
+          </Button>
+          <Button asChild variant="outline" className="group">
+            <a href="https://www.gymzy.in/signin" target="_blank" rel="noopener noreferrer">
+              View Gymzy
+              <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
             </a>
           </Button>
         </motion.div>

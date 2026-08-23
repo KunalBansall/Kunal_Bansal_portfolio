@@ -31,55 +31,58 @@ export default function Skills() {
     threshold: 0.1,
   })
 
-  const [activeCategory, setActiveCategory] = useState("Programming Languages")
+  const [activeCategory, setActiveCategory] = useState("Languages & Frontend")
 
   const skillCategories = [
     {
-      title: "Programming Languages",
+      title: "Languages & Frontend",
       icon: Code,
       skills: [
-        { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E", proficiency: 90 },
-        { name: "C++", icon: SiCplusplus, color: "#00599C", proficiency: 85 },
-        { name: "Java", icon: FaJava, color: "#007396", proficiency: 80 }, // ✅ Fixed `SiJava`
-        { name: "Python", icon: SiPython, color: "#3776AB", suffix: "(Familiar)", proficiency: 70 },
+        { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
+        { name: "TypeScript", icon: SiJavascript, color: "#3178C6" },
+        { name: "C++", icon: SiCplusplus, color: "#00599C" },
+        { name: "React", icon: SiReact, color: "#61DAFB" },
+        { name: "Next.js", icon: SiReact, color: "#FFFFFF" },
+        { name: "Redux Toolkit", icon: SiReact, color: "#764ABC" },
+        { name: "React Query", icon: SiReact, color: "#FF4154" },
+        { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
       ],
     },
     {
-      title: "Libraries/Frameworks",
-      icon: Layout,
-      skills: [
-        { name: "ReactJS", icon: SiReact, color: "#61DAFB", proficiency: 90 },
-        { name: "React Native", icon: SiReact, color: "#61DAFB", proficiency: 85 }, // ✅ Fixed `SiReacttable`
-        { name: "Android", icon: SiAndroid, color: "#3DDC84", proficiency: 80 },
-        { name: "Tailwind", icon: SiTailwindcss, color: "#06B6D4", proficiency: 90 },
-        { name: "Bootstrap", icon: SiBootstrap, color: "#7952B3", proficiency: 85 },
-        { name: "NodeJS", icon: SiNodedotjs, color: "#339933", proficiency: 85 },
-        { name: "ExpressJS", icon: SiExpress, color: "#000000", proficiency: 80 },
-      ],
-    },
-    {
-      title: "Real-time & Auth Tools",
-      icon: Terminal,
-      skills: [
-        { name: "Socket.IO", icon: SiSocketdotio, color: "#010101", proficiency: 85 },
-        { name: "Firebase", icon: SiFirebase, color: "#FFCA28", proficiency: 90 },
-        { name: "JWT", icon: SiJsonwebtokens, color: "#000000", proficiency: 85 },
-      ],
-    },
-    {
-      title: "Databases",
-      icon: Database,
-      skills: [
-        { name: "MongoDB", icon: SiMongodb, color: "#47A248", proficiency: 90 },
-        { name: "PostgreSQL", icon: SiPostgresql, color: "#4169E1", proficiency: 85 },
-      ],
-    },
-    {
-      title: "Containerization",
+      title: "Backend & APIs",
       icon: Server,
       skills: [
-        { name: "Docker", icon: SiDocker, color: "#2496ED", proficiency: 85 },
-        { name: "Kubernetes", icon: SiKubernetes, color: "#326CE5", proficiency: 80 },
+        { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
+        { name: "Express.js", icon: SiExpress, color: "#888888" },
+        { name: "REST APIs", icon: SiNodedotjs, color: "#339933" },
+        { name: "Socket.IO", icon: SiSocketdotio, color: "#888888" },
+        { name: "JWT & Refresh Tokens", icon: SiJsonwebtokens, color: "#D63AFF" },
+        { name: "RBAC", icon: SiJsonwebtokens, color: "#7C3AED" },
+        { name: "Flask", icon: SiPython, color: "#888888" },
+      ],
+    },
+    {
+      title: "Data & Integrations",
+      icon: Database,
+      skills: [
+        { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
+        { name: "PostgreSQL", icon: SiPostgresql, color: "#4169E1" },
+        { name: "Firebase", icon: SiFirebase, color: "#FFCA28" },
+        { name: "Razorpay", icon: SiJavascript, color: "#3395FF" },
+        { name: "Cloudinary", icon: SiReact, color: "#3448C5" },
+      ],
+    },
+    {
+      title: "DevOps & Quality",
+      icon: Terminal,
+      skills: [
+        { name: "Docker", icon: SiDocker, color: "#2496ED" },
+        { name: "Kubernetes", icon: SiKubernetes, color: "#326CE5" },
+        { name: "Microsoft Azure", icon: SiDocker, color: "#0078D4" },
+        { name: "Azure DevOps & CI/CD", icon: SiDocker, color: "#0078D4" },
+        { name: "SonarQube", icon: SiSocketdotio, color: "#4E9BCD" },
+        { name: "Git & GitHub", icon: SiJsonwebtokens, color: "#F05032" },
+        { name: "Postman", icon: SiJavascript, color: "#FF6C37" },
       ],
     },
   ]
@@ -152,7 +155,7 @@ export default function Skills() {
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
               {skillCategories
                 .find((cat) => cat.title === activeCategory)
-                ?.skills.map((skill, index) => {
+                ?.skills.map((skill) => {
                   const SkillIcon = skill.icon
                   return (
                     <motion.div
@@ -170,17 +173,6 @@ export default function Skills() {
                         </div>
                         <div className="text-center">
                           <h3 className="font-medium mb-1">{skill.name}</h3>
-                          {skill.suffix && (
-                            <span className="text-xs text-muted-foreground">{skill.suffix}</span>
-                          )}
-                          <div className="w-full h-1.5 bg-primary/20 rounded-full mt-2">
-                            <motion.div
-                              initial={{ width: 0 }}
-                              animate={{ width: `${skill.proficiency}%` }}
-                              transition={{ duration: 1, delay: index * 0.1 }}
-                              className="h-full bg-primary rounded-full"
-                            />
-                          </div>
                         </div>
                       </div>
                     </motion.div>

@@ -12,12 +12,23 @@ export default function Experience() {
 
   const experiences = [
     {
+      title: "Frontend Developer",
+      company: "ISourse Technologies Pvt. Ltd.",
+      period: "July 2025 - Present",
+      description: [
+        "Architected config-driven React and TypeScript modules for CRM, HRMS, recruitment, and gig-economy products used by 8+ enterprise clients, reducing feature delivery time by approximately 30%.",
+        "Built JWT login and refresh-token flows with Axios interceptors, RBAC, and permission-driven interfaces across 1,000+ secure API integrations.",
+        "Delivered recruitment and onboarding workflows plus a LeetCode-style assessment portal with anti-cheating controls and PDF reporting for 300+ candidates.",
+        "Diagnosed API latency, created reusable services, mentored interns, and supported SonarQube quality gates and Azure DevOps CI/CD pipelines.",
+      ],
+    },
+    {
       title: "Software Development Engineer Intern",
       company: "Nyalazone Solutions",
       period: "January 2024 - June 2024",
       description: [
         "Developed an Asset Management System using Angular for the front-end and Flask for the back-end, managing employee data, tracking asset states, and handling asset allocation efficiently during an internship.",
-        "Integrated Angular with Flask for seamless communication and data consistency, enhancing skills in TypeScript, PostgreSQL, and AWS.",
+        "Integrated Angular with Flask and PostgreSQL on AWS, improving query performance by approximately 25% while maintaining reliable data flows.",
         "Gained hands-on experience in a collaborative team environment while working on real-world asset management challenges.",
       ],
     },
@@ -64,4 +75,3 @@ export default function Experience() {
     </section>
   )
 }
-

@@ -19,19 +19,19 @@ export default function Projects() {
   // Enhanced project data with categories and screenshots
   const projects = [
     {
-      title: "ActiveHub FitTracker",
+      title: "Gymzy — Multi-Tenant Gym Management SaaS",
       description:
-        "A full-stack gym management software to streamline operations, enhance member engagement, and automate membership tracking.",
+        "A production SaaS platform that helps gyms manage tenants, members, subscriptions, payments, and daily operations from role-based dashboards.",
       features: [
-        "Member dashboards, attendance tracking, and automated membership notifications.",
-        "Real-time chat integration using Tawk.to and email notifications via Nodemailer.",
-        "Cloudinary for seamless image uploads and storage.",
-        "Deployed on Render for high performance and scalability.",
+        "Multi-tenant dashboards with JWT authentication, RBAC, and tenant-isolated workflows.",
+        "Recurring Razorpay subscriptions with HMAC-verified webhooks and complete subscription lifecycle handling.",
+        "Member management, attendance, notifications, analytics, and Cloudinary-powered media workflows.",
+        "Deployed as a live production product at gymzy.in.",
       ],
-      technologies: ["ReactJS", "NodeJS", "ExpressJS", "MongoDB", "TypeScript", "Cloudinary"],
-      github: "https://github.com/KunalBansall/ActiveHubFitracker",
-      demo: "https://activehubfitracker.onrender.com/",
-      categories: ["Web App", "MERN Stack", "Full Stack"],
+      technologies: ["ReactJS", "TypeScript", "NodeJS", "ExpressJS", "MongoDB", "Razorpay", "Cloudinary"],
+      github: "https://github.com/KunalBansall/ActiveHubFitTracker",
+      demo: "https://www.gymzy.in/signin",
+      categories: ["SaaS", "MERN Stack", "Full Stack"],
       screenshots: ["/screenshots/Dashboard.png?height=600&width=800", "/screenshots/MemberDetails.png?height=600&width=800", "/screenshots/MemberPage.png?height=600&width=800"],
     },
     {
@@ -42,7 +42,7 @@ export default function Projects() {
         "Robust CRUD operations, REST APIs, and advanced search functionality.",
         "Optimized state management using Redux Toolkit for enhanced performance.",
         "Deployed on Render for scalability and reliability.",
-        "Firebase for secure user authentication and data storage.",
+        "Firebase and Google OAuth for secure user authentication.",
         "Google Maps API integration for location-based services.",
       ],
       technologies: ["ReactJS", "NodeJS", "ExpressJS", "MongoDB", "Firebase"],
@@ -297,6 +297,5 @@ function ProjectScreenshots({ project }: { project: any }) {
     </div>
   )
 }
-
 
 

@@ -11,9 +11,19 @@ import { Analytics } from "@vercel/analytics/react"
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })
 
 export const metadata: Metadata = {
-  title: "Kunal Bansal | Software Development Engineer",
-  description: "Portfolio website of Kunal Bansal, Software Development Engineer",
-  generator: "v0.dev",
+  metadataBase: new URL("https://kunalbansal.vercel.app"),
+  title: "Kunal Bansal | Full-Stack Software Engineer",
+  description:
+    "Kunal Bansal is a full-stack software engineer building production React, TypeScript, Node.js, and SaaS products.",
+  keywords: ["Kunal Bansal", "Full-Stack Developer", "React Developer", "Node.js Developer", "TypeScript", "SaaS"],
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "Kunal Bansal | Full-Stack Software Engineer",
+    description: "Production-focused React, TypeScript, Node.js, and SaaS engineer.",
+    url: "/",
+    siteName: "Kunal Bansal Portfolio",
+    type: "website",
+  },
 }
 
 export default function RootLayout({
@@ -44,5 +54,3 @@ export default function RootLayout({
     </html>
   )
 }
-
-import "./globals.css"

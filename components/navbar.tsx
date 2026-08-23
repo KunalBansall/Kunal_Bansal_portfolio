@@ -42,7 +42,7 @@ export default function Navbar() {
           className="text-2xl font-bold text-primary hover:text-primary/80 transition-colors flex items-center"
         >
           KB
-          <span className="ml-2 text-xs bg-primary/10 text-primary px-2 py-0.5 rounded-full">MERN DEV</span>
+          <span className="ml-2 text-xs bg-primary/10 text-primary px-2 py-0.5 rounded-full">FULL-STACK</span>
         </a>
 
         {/* Desktop Navigation */}
@@ -96,4 +96,3 @@ export default function Navbar() {
     </header>
   )
 }
-

@@ -11,7 +11,12 @@ export default function About() {
   })
 
   const timelineItems = [
-   
+    {
+      year: "July 2025",
+      title: "Joined ISourse Technologies",
+      description: "Building reusable enterprise React and TypeScript products for 8+ clients",
+      icon: <Briefcase className="h-5 w-5" />,
+    },
     {
       year: "July 2024",
       title: "Computer Science Degree",
@@ -64,18 +69,19 @@ export default function About() {
             className="prose prose-lg dark:prose-invert mx-auto mb-16"
           >
             <p>
-              I specialize in building responsive and user-friendly web applications using modern technologies like
-              React, Node.js, and MongoDB. My recent internship at Nyalazone Solutions allowed me to apply my skills in
-              a real-world setting, developing an Asset Management System using Angular and Flask.
+              I am a full-stack software engineer with 2+ years of experience building production React, TypeScript,
+              Node.js, and Express applications. At ISourse Technologies, I develop reusable CRM, HRMS, recruitment,
+              and gig-economy modules for enterprise clients.
             </p>
             <p>
-              I'm currently focused on expanding my expertise in mobile development, working with React Native and
-              Android development to build cross-platform and native mobile applications. This allows me to create
-              seamless experiences across web and mobile platforms.
+              My work spans secure authentication, RBAC, REST API architecture, complex business workflows,
+              performance debugging, and CI/CD. I enjoy turning repeated customer requirements into maintainable,
+              config-driven product capabilities.
             </p>
             <p>
-              When I'm not coding, I enjoy solving algorithmic problems on platforms like LeetCode and continuously
-              expanding my knowledge through certifications and courses.
+              Outside work, I independently build products such as Gymzy, a live multi-tenant gym-management SaaS
+              with recurring Razorpay billing and subscription lifecycle automation. I have also solved 500+ data
+              structures and algorithms problems on LeetCode.
             </p>
           </motion.div>
 
@@ -143,4 +149,3 @@ export default function About() {
     </section>
   )
 }
-

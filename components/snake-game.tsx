@@ -53,12 +53,15 @@ export default function SnakeGame() {
   const [highScore, setHighScore] = useState(0)
   const [techsEaten, setTechsEaten] = useState<string[]>([])
 
-  const generateFood = useCallback(() => {
-    const newFood = {
-      x: Math.floor(Math.random() * GRID_SIZE),
-      y: Math.floor(Math.random() * GRID_SIZE)
-    }
-    return newFood
+  const generateFood = useCallback((occupiedSnake: typeof INITIAL_SNAKE) => {
+    const availableCells = Array.from({ length: GRID_SIZE * GRID_SIZE }, (_, index) => ({
+      x: index % GRID_SIZE,
+      y: Math.floor(index / GRID_SIZE),
+    })).filter(
+      (cell) => !occupiedSnake.some((segment) => segment.x === cell.x && segment.y === cell.y),
+    )
+
+    return availableCells[Math.floor(Math.random() * availableCells.length)] ?? INITIAL_FOOD
   }, [])
 
   const resetGame = useCallback(() => {
@@ -105,7 +108,7 @@ export default function SnakeGame() {
         setTechsEaten(prev => [...prev, randomTech])
         
         // Generate new food
-        setFood(generateFood())
+        setFood(generateFood(newSnake))
       } else {
         newSnake.pop()
       }
@@ -117,6 +120,10 @@ export default function SnakeGame() {
   // Handle keyboard controls for arrow keys only
   const handleKeyPress = useCallback((e: KeyboardEvent) => {
     if (!gameStarted || gameOver || isPaused) return
+
+    if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.key)) {
+      e.preventDefault()
+    }
     
     switch (e.key) {
       case 'ArrowUp':
@@ -156,8 +163,14 @@ export default function SnakeGame() {
   }, [gameStarted, gameOver, resetGame])
 
   useEffect(() => {
+    const savedHighScore = Number.parseInt(window.localStorage.getItem("snake-high-score") ?? "0", 10)
+    if (Number.isFinite(savedHighScore)) setHighScore(savedHighScore)
+  }, [])
+
+  useEffect(() => {
     if (score > highScore) {
       setHighScore(score)
+      window.localStorage.setItem("snake-high-score", String(score))
     }
   }, [score, highScore])
 

@@ -38,6 +38,14 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (formData.message.trim().length < 10) {
+      toast({
+        title: "Please add a little more detail",
+        description: "Your message should be at least 10 characters long.",
+        variant: "destructive",
+      });
+      return;
+    }
     setIsSubmitting(true);
 
     try {
@@ -48,7 +56,7 @@ export default function Contact() {
           from_name: formData.name,
           email: formData.email,
           message: formData.message,
-          to_email: "obansal.kunalo@gmail.com",
+          to_email: "kunalbansal.dev@gmail.com",
         },
         "eEexyxv7NxRO9K0AE"
       );
@@ -117,10 +125,10 @@ export default function Contact() {
                 <div>
                   <p className="text-sm text-foreground/60">Email</p>
                   <a
-                    href="mailto:obansal.kunalo@gmail.com"
+                    href="mailto:kunalbansal.dev@gmail.com"
                     className="text-foreground hover:text-primary transition-colors"
                   >
-                    obansal.kunalo@gmail.com
+                    kunalbansal.dev@gmail.com
                   </a>
                 </div>
               </div>
@@ -178,6 +186,8 @@ export default function Contact() {
                 onChange={handleChange}
                 placeholder="Your name"
                 required
+                minLength={2}
+                maxLength={80}
                 className="w-full"
               />
               <Input
@@ -197,6 +207,8 @@ export default function Contact() {
                 onChange={handleChange}
                 placeholder="Your message"
                 required
+                minLength={10}
+                maxLength={2000}
                 className="w-full min-h-[150px]"
               />
               <Button
