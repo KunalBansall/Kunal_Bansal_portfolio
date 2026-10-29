@@ -62,13 +62,15 @@ export default function Skills() {
       ],
     },
     {
-      title: "Data & Integrations",
+      title: "Data, Payments & Web3",
       icon: Database,
       skills: [
         { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
         { name: "PostgreSQL", icon: SiPostgresql, color: "#4169E1" },
         { name: "Firebase", icon: SiFirebase, color: "#FFCA28" },
-        { name: "Razorpay", icon: SiJavascript, color: "#3395FF" },
+        { name: "Razorpay & HMAC Webhooks", icon: SiJavascript, color: "#3395FF" },
+        { name: "Crypto Payments", icon: SiJsonwebtokens, color: "#7C3AED" },
+        { name: "Stablecoins", icon: SiJsonwebtokens, color: "#339933" },
         { name: "Cloudinary", icon: SiReact, color: "#3448C5" },
       ],
     },
@@ -86,6 +88,12 @@ export default function Skills() {
       ],
     },
   ]
+
+  skillCategories.push({
+    title: "AI Development Tools",
+    icon: Terminal,
+    skills: ["Claude", "Cursor", "Codex", "Windsurf", "Antigravity"].map(name => ({ name, icon: SiJavascript, color: "#888888" })),
+  })
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -190,8 +198,7 @@ export default function Skills() {
         >
           <div className="inline-block rounded-lg bg-primary/10 px-6 py-3">
             <p className="text-foreground/90">
-              <span className="font-semibold text-primary">Achievement:</span> Solved more than 500
-              questions across platforms LeetCode, Coding Ninjas.
+              <span className="font-semibold text-primary">Achievement:</span> Solved 500+ data structures and algorithms problems on LeetCode.
             </p>
           </div>
         </motion.div>

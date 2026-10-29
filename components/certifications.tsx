@@ -11,36 +11,9 @@ export default function Certifications() {
   })
 
   const certifications = [
-    {
-      title: "Advanced Web Development",
-      issuer: "Coding Ninjas",
-      year: "2021",
-    },
-    {
-      title: "Developing Front End Apps using React",
-      issuer: "Coursera",
-      year: "2024",
-    },
-    {
-      title: "Back-End Development using JavaScript and Node.js",
-      issuer: "Devtown",
-      year: "2022",
-    },
-    {
-      title: "Object Oriented Programming",
-      issuer: "Coding Ninjas",
-      year: "2021",
-    },
-    {
-      title: "Developing Back-End Apps with Node.js and Express",
-      issuer: "Coursera",
-      year: "2024",
-    },
-    {
-      title: "IBM Full Stack Software Developer",
-      issuer: "Coursera",
-      year: "2024",
-    },
+    { title: "IBM Full Stack Software Developer", issuer: "Coursera", year: "2024" },
+    { title: "Front End Apps with React", issuer: "Coursera", year: "2024" },
+    { title: "Back-End with Node.js & Express", issuer: "Coursera", year: "2024" },
   ]
 
   return (

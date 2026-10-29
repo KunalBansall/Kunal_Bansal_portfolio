@@ -14,12 +14,12 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://kunalbansal.vercel.app"),
   title: "Kunal Bansal | Full-Stack Software Engineer",
   description:
-    "Kunal Bansal is a full-stack software engineer building production React, TypeScript, Node.js, and SaaS products.",
+    "Kunal Bansal is a full-stack software engineer at Actalink building Web3 payments, React and Next.js platforms, and Gymzy, a multi-tenant SaaS.",
   keywords: ["Kunal Bansal", "Full-Stack Developer", "React Developer", "Node.js Developer", "TypeScript", "SaaS"],
   alternates: { canonical: "/" },
   openGraph: {
     title: "Kunal Bansal | Full-Stack Software Engineer",
-    description: "Production-focused React, TypeScript, Node.js, and SaaS engineer.",
+    description: "Full-stack engineer at Actalink. Web3 payments, React, Next.js, Node.js, and multi-tenant SaaS.",
     url: "/",
     siteName: "Kunal Bansal Portfolio",
     type: "website",

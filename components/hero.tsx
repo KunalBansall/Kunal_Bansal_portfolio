@@ -37,11 +37,12 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="text-xl md:text-2xl text-foreground/80 mb-8"
         >
-          Full-Stack Software Engineer | React, TypeScript & Node.js
+          Full-Stack Software Engineer | SaaS & Web3 Payments
         </motion.h2>
         <p className="mx-auto mb-8 max-w-3xl text-base text-foreground/70 md:text-lg">
-          I build secure, scalable SaaS and enterprise products across the frontend and backend,
-          with 2+ years of experience shipping production software for real users.
+          I build production web platforms with React, Next.js, TypeScript, and Node.js.
+          Currently at Actalink, building crypto payment links, subscriptions, and hosted checkout.
+          Independently built Gymzy, a live multi-tenant gym-management SaaS.
         </p>
 
         <motion.div

@@ -12,6 +12,12 @@ export default function About() {
 
   const timelineItems = [
     {
+      year: "September 2026",
+      title: "Joined Actalink",
+      description: "Building Web3 payment products and migrating the React platform to Next.js",
+      icon: <Briefcase className="h-5 w-5" />,
+    },
+    {
       year: "July 2025",
       title: "Joined ISourse Technologies",
       description: "Building reusable enterprise React and TypeScript products for 8+ clients",
@@ -20,13 +26,13 @@ export default function About() {
     {
       year: "July 2024",
       title: "Computer Science Degree",
-      description: "Graduated with honors, specializing in web development",
+      description: "B.E. in Computer Science and Engineering, Chitkara University · CGPA 9.28",
       icon: <GraduationCap className="h-5 w-5" />,
     },
     {
       year: "June 2024",
       title: "First Major Project",
-      description: "Built a full-stack e-commerce platform with MERN stack NearBy",
+      description: "Built Near-By, a MERN real estate marketplace",
       icon: <Code className="h-5 w-5" />,
     },{
       year: "Jan 2024",
@@ -44,9 +50,9 @@ export default function About() {
   ]
 
   const funFacts = [
-    "I love debugging more than writing code 🚀",
-    "I once built an app in 24 hours ⏳",
-    "My code is powered by coffee and curiosity ☕",
+    "500+ LeetCode problems solved",
+    "Sole developer of Gymzy, a live B2B SaaS",
+    "Enterprise platforms delivered for 8+ clients",
   ]
 
   return (
@@ -70,13 +76,14 @@ export default function About() {
           >
             <p>
               I am a full-stack software engineer with 2+ years of experience building production React, TypeScript,
-              Node.js, and Express applications. At ISourse Technologies, I develop reusable CRM, HRMS, recruitment,
-              and gig-economy modules for enterprise clients.
+              Next.js, Node.js, and Express applications. At Actalink, I build crypto payment links, recurring
+              subscriptions, and hosted checkout experiences on blockchain and stablecoin rails.
             </p>
             <p>
               My work spans secure authentication, RBAC, REST API architecture, complex business workflows,
               performance debugging, and CI/CD. I enjoy turning repeated customer requirements into maintainable,
-              config-driven product capabilities.
+              config-driven product capabilities. Previously at ISourse Technologies, I built enterprise CRM, HRMS,
+              recruitment, and gig-economy platforms for clients including Blinkit, Swiggy, and DishTV.
             </p>
             <p>
               Outside work, I independently build products such as Gymzy, a live multi-tenant gym-management SaaS
@@ -122,14 +129,14 @@ export default function About() {
             </div>
           </motion.div>
 
-          {/* Fun Facts Section */}
+          {/* Highlights Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6, delay: 0.6 }}
             className="bg-card rounded-lg p-8 shadow-md"
           >
-            <h3 className="text-2xl font-bold mb-6 text-center">Fun Facts</h3>
+            <h3 className="text-2xl font-bold mb-6 text-center">Highlights</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {funFacts.map((fact, index) => (
                 <motion.div

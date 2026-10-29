@@ -12,14 +12,25 @@ export default function Experience() {
 
   const experiences = [
     {
+      title: "Software Engineer",
+      company: "Actalink · Remote, London, UK",
+      period: "September 2026 - Present",
+      description: [
+        "Building Web3 payment products: crypto payment links, recurring subscriptions, and hosted checkout on blockchain and stablecoin rails.",
+        "Evolving the React platform and driving its migration to Next.js to improve performance, SEO, accessibility, and scalability.",
+        "Authoring developer documentation for checkout APIs, subscription Paylinks, payment tracking, blockchain payment webhooks, and cancellation.",
+        "Partnering with product and engineering on multi-chain payments, supported tokens, crypto wallets, and stablecoin settlement.",
+      ],
+    },
+    {
       title: "Frontend Developer",
       company: "ISourse Technologies Pvt. Ltd.",
-      period: "July 2025 - Present",
+      period: "July 2025 - August 2026",
       description: [
-        "Architected config-driven React and TypeScript modules for CRM, HRMS, recruitment, and gig-economy products used by 8+ enterprise clients, reducing feature delivery time by approximately 30%.",
+        "Architected config-driven React and TypeScript modules for CRM, HRMS, recruitment, and gig-economy products used by 8+ enterprise clients including Blinkit, Swiggy, DishTV, NX Group, and DTDC Australia, reducing feature delivery time by approximately 30%.",
         "Built JWT login and refresh-token flows with Axios interceptors, RBAC, and permission-driven interfaces across 1,000+ secure API integrations.",
         "Delivered recruitment and onboarding workflows plus a LeetCode-style assessment portal with anti-cheating controls and PDF reporting for 300+ candidates.",
-        "Diagnosed API latency, created reusable services, mentored interns, and supported SonarQube quality gates and Azure DevOps CI/CD pipelines.",
+        "Built dynamic master-data mapping across 5+ HRMS entities to keep data consistent across portals, plus RBAC-controlled gig onboarding and proof-of-delivery validation for XpressBees.",
       ],
     },
     {

@@ -1,20 +1,18 @@
 "use client"
 
-import { useState, useRef } from "react"
+import { useState } from "react"
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import { ExternalLink, Github, ChevronLeft, ChevronRight } from "lucide-react"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogTrigger, DialogTitle, DialogDescription } from "@/components/ui/dialog"
 import { cn } from "@/lib/utils"
 
 export default function Projects() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 })
   const [activeFilter, setActiveFilter] = useState<string>("All")
-  const [selectedProject, setSelectedProject] = useState<number | null>(null)
-  const scrollContainerRef = useRef<HTMLDivElement>(null)
 
   // Enhanced project data with categories and screenshots
   const projects = [
@@ -23,12 +21,14 @@ export default function Projects() {
       description:
         "A production SaaS platform that helps gyms manage tenants, members, subscriptions, payments, and daily operations from role-based dashboards.",
       features: [
-        "Multi-tenant dashboards with JWT authentication, RBAC, and tenant-isolated workflows.",
-        "Recurring Razorpay subscriptions with HMAC-verified webhooks and complete subscription lifecycle handling.",
-        "Member management, attendance, notifications, analytics, and Cloudinary-powered media workflows.",
+        "Solely designed, built, and deployed owner, gym admin, trainer, and member dashboards with JWT, RBAC, and isolated API scopes.",
+        "Recurring Razorpay billing with server-side HMAC verification and trial, active, past-due, and expired subscription states.",
+        "Built an internal ad network with five placements, role/gym targeting, and per-impression analytics.",
+        "E-commerce, workout planning, attendance, and Recharts revenue dashboards.",
+        "React Query caching, server-side pagination, memoized rendering, and Cloudinary uploads with progress.",
         "Deployed as a live production product at gymzy.in.",
       ],
-      technologies: ["ReactJS", "TypeScript", "NodeJS", "ExpressJS", "MongoDB", "Razorpay", "Cloudinary"],
+      technologies: ["ReactJS", "TypeScript", "NodeJS", "ExpressJS", "MongoDB", "Razorpay", "Cloudinary", "React Query", "Recharts"],
       github: "https://github.com/KunalBansall/ActiveHubFitTracker",
       demo: "https://www.gymzy.in/signin",
       categories: ["SaaS", "MERN Stack", "Full Stack"],
@@ -39,11 +39,10 @@ export default function Projects() {
       description:
         "A full-stack real estate marketplace using the MERN stack with JWT authentication, Google OAuth, and Firebase for secure user access.",
       features: [
-        "Robust CRUD operations, REST APIs, and advanced search functionality.",
-        "Optimized state management using Redux Toolkit for enhanced performance.",
+        "Listing CRUD, REST APIs, advanced search and filtering, and Firebase image uploads.",
+        "Reduced redundant API calls by approximately 40% through Redux Toolkit caching and selector memoization.",
         "Deployed on Render for scalability and reliability.",
         "Firebase and Google OAuth for secure user authentication.",
-        "Google Maps API integration for location-based services.",
       ],
       technologies: ["ReactJS", "NodeJS", "ExpressJS", "MongoDB", "Firebase"],
       github: "https://github.com/KunalBansall/Near-By",
@@ -54,11 +53,11 @@ export default function Projects() {
     {
       title: "AmigoChat",
       description:
-        "A real-time chat application powered by the MERN stack, enabling secure user authentication, instant messaging, and WebSocket communication.",
+        "A MERN messaging application combining authenticated user access with instant, Socket.IO-powered conversations.",
       features: [
         "Google OAuth and JWT authentication for secure user access.",
         "Real-time messaging powered by Socket.io.",
-        "Modern UI with a responsive chat experience.",
+        "Responsive chat interface with searchable users and conversation views.",
         "Deployed on Render for high availability.",
       ],
       technologies: ["ReactJS", "NodeJS", "ExpressJS", "MongoDB", "Socket.io", "JWT", "Google OAuth"],
@@ -76,15 +75,6 @@ export default function Projects() {
   const filteredProjects =
     activeFilter === "All" ? projects : projects.filter((project) => project.categories.includes(activeFilter))
 
-  // Scroll functions for carousel
-  const scroll = (direction: "left" | "right") => {
-    if (scrollContainerRef.current) {
-      const { current } = scrollContainerRef
-      const scrollAmount = direction === "left" ? -400 : 400
-      current.scrollBy({ left: scrollAmount, behavior: "smooth" })
-    }
-  }
-  
   return (
     <section id="projects" ref={ref} className="py-20 bg-background">
       <div className="container mx-auto px-4">
@@ -117,41 +107,24 @@ export default function Projects() {
           ))}
         </motion.div>
 
-        {/* Carousel Navigation */}
-        <div className="relative">
-          <div className="absolute left-0 top-1/2 -translate-y-1/2 z-10">
-            <Button
-              variant="outline"
-              size="icon"
-              className="rounded-full bg-background/80 backdrop-blur-sm"
-              onClick={() => scroll("left")}
-            >
-              <ChevronLeft className="h-5 w-5" />
-            </Button>
-          </div>
-
-          {/* Projects Carousel */}
-          <div
-            ref={scrollContainerRef}
-            className="flex gap-6 py-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory"
-            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-          >
+        <p className="max-w-2xl mx-auto text-center text-muted-foreground mb-8">
+          Independent products spanning SaaS, real estate, and real-time communication.
+          Explore the implementation details and source code below.
+        </p>
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
             {filteredProjects.map((project, index) => (
               <motion.div
-                key={index}
+                key={project.title}
                 initial={{ opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
-                className="min-w-[350px] md:min-w-[400px] lg:min-w-[450px] snap-start transition-all duration-300"
+                className="min-w-0"
               >
                 <Card className="h-full overflow-hidden group hover:shadow-lg transition-all duration-300 border-primary/10 hover:border-primary/30 hover:scale-[1.03] hover:-translate-y-1">
                   {/* Project Screenshot Preview */}
                   <Dialog>
                     <DialogTrigger asChild>
-                      <div
-                        className="relative h-48 overflow-hidden cursor-pointer"
-                        onClick={() => setSelectedProject(index)}
-                      >
+                      <button type="button" aria-label={`View screenshots of ${project.title}`} className="relative block w-full h-48 overflow-hidden cursor-pointer">
                         <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"></div>
                         <img
                           src={project.screenshots[0] || "/placeholder.svg"}
@@ -161,9 +134,11 @@ export default function Projects() {
                         <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                           <span className="text-white font-medium">View Screenshots</span>
                         </div>
-                      </div>
+                      </button>
                     </DialogTrigger>
                     <DialogContent className="max-w-4xl">
+                      <DialogTitle>{project.title}</DialogTitle>
+                      <DialogDescription>Project screenshots</DialogDescription>
                       <ProjectScreenshots project={project} />
                     </DialogContent>
                   </Dialog>
@@ -183,7 +158,7 @@ export default function Projects() {
                   </CardHeader>
                   <CardContent>
                     <ul className="list-disc list-inside space-y-2 text-foreground/80 mb-4">
-                      {project.features.slice(0, 2).map((feature, i) => (
+                      {project.features.map((feature, i) => (
                         <li key={i} className="text-sm">
                           {feature}
                         </li>
@@ -222,24 +197,13 @@ export default function Projects() {
             ))}
           </div>
 
-          <div className="absolute right-0 top-1/2 -translate-y-1/2 z-10">
-            <Button
-              variant="outline"
-              size="icon"
-              className="rounded-full bg-background/80 backdrop-blur-sm"
-              onClick={() => scroll("right")}
-            >
-              <ChevronRight className="h-5 w-5" />
-            </Button>
-          </div>
-        </div>
       </div>
     </section>
   )
 }
 
 // Component for displaying project screenshots in a modal
-function ProjectScreenshots({ project }: { project: any }) {
+function ProjectScreenshots({ project }: { project: { title: string; screenshots: string[] } }) {
   const [currentIndex, setCurrentIndex] = useState(0)
 
   const nextSlide = () => {
@@ -271,26 +235,28 @@ function ProjectScreenshots({ project }: { project: any }) {
       </div>
 
       <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
-        {project.screenshots.map((_: any, index: number) => (
+        {project.screenshots.map((_: string, index: number) => (
           <button
             key={index}
             className={cn(
               "w-2 h-2 rounded-full transition-all",
               index === currentIndex ? "bg-primary w-4" : "bg-primary/30",
             )}
+            aria-label={`Show screenshot ${index + 1}`}
+            aria-pressed={index === currentIndex}
             onClick={() => setCurrentIndex(index)}
           />
         ))}
       </div>
 
       <div className="absolute left-4 top-1/2 -translate-y-1/2">
-        <Button variant="outline" size="icon" className="rounded-full" onClick={prevSlide}>
+        <Button variant="outline" size="icon" className="rounded-full" aria-label="Previous screenshot" onClick={prevSlide}>
           <ChevronLeft className="h-5 w-5" />
         </Button>
       </div>
 
       <div className="absolute right-4 top-1/2 -translate-y-1/2">
-        <Button variant="outline" size="icon" className="rounded-full" onClick={nextSlide}>
+        <Button variant="outline" size="icon" className="rounded-full" aria-label="Next screenshot" onClick={nextSlide}>
           <ChevronRight className="h-5 w-5" />
         </Button>
       </div>
