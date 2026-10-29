@@ -17,6 +17,23 @@ export default function Projects() {
   // Enhanced project data with categories and screenshots
   const projects = [
     {
+      title: "HojaoShuru — Team Job-Sharing Platform",
+      description:
+        "A private workspace for small teams to collect job openings, organize opportunities, and track their own applications.",
+      features: [
+        "Member registration, admin controls, and ownership-based editing with JWT sessions in HTTP-only cookies.",
+        "Search, Asia/Kolkata date filters, pagination, and per-user applied markers for shared job listings.",
+        "CSV and JSON import with validation previews, exact-link deduplication, and review of likely company/role duplicates.",
+        "Filtered CSV/JSON exports, bulk copying, and reviewed application packs handed off to ChatGPT.",
+        "Origin-based CSRF protection, bcrypt password hashing, request rate limits, and validated API inputs.",
+      ],
+      technologies: ["React", "Vite", "Tailwind CSS", "Node.js", "Express", "MongoDB", "JWT", "Zod"],
+      github: "https://github.com/KunalBansall/HojaoShuru",
+      demo: "",
+      categories: ["Web App", "MERN Stack", "Full Stack"],
+      screenshots: [],
+    },
+    {
       title: "Gymzy — Multi-Tenant Gym Management SaaS",
       description:
         "A production SaaS platform that helps gyms manage tenants, members, subscriptions, payments, and daily operations from role-based dashboards.",
@@ -108,7 +125,7 @@ export default function Projects() {
         </motion.div>
 
         <p className="max-w-2xl mx-auto text-center text-muted-foreground mb-8">
-          Independent products spanning SaaS, real estate, and real-time communication.
+          Independent products spanning SaaS, job sharing, real estate, and real-time communication.
           Explore the implementation details and source code below.
         </p>
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
@@ -122,7 +139,7 @@ export default function Projects() {
               >
                 <Card className="h-full overflow-hidden group hover:shadow-lg transition-all duration-300 border-primary/10 hover:border-primary/30 hover:scale-[1.03] hover:-translate-y-1">
                   {/* Project Screenshot Preview */}
-                  <Dialog>
+                  {project.screenshots.length > 0 ? <Dialog>
                     <DialogTrigger asChild>
                       <button type="button" aria-label={`View screenshots of ${project.title}`} className="relative block w-full h-48 overflow-hidden cursor-pointer">
                         <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"></div>
@@ -141,7 +158,13 @@ export default function Projects() {
                       <DialogDescription>Project screenshots</DialogDescription>
                       <ProjectScreenshots project={project} />
                     </DialogContent>
-                  </Dialog>
+                  </Dialog> : (
+                    <div className="flex h-48 flex-col justify-center gap-3 bg-gradient-to-br from-primary/20 via-primary/10 to-background px-6">
+                      <span className="text-xs font-medium uppercase tracking-widest text-primary">Team job workspace</span>
+                      <p className="text-3xl font-bold">HojaoShuru</p>
+                      <p className="text-sm text-muted-foreground">Collect. Organize. Apply.</p>
+                    </div>
+                  )}
 
                   <CardHeader>
                     <div className="flex flex-wrap gap-2 mb-2">
@@ -182,7 +205,7 @@ export default function Projects() {
                       <Github className="h-4 w-4 mr-1" />
                       GitHub
                     </a>
-                    <a
+                    {project.demo && <a
                       href={project.demo}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -190,7 +213,7 @@ export default function Projects() {
                     >
                       <ExternalLink className="h-4 w-4 mr-1" />
                       Live Demo
-                    </a>
+                    </a>}
                   </CardFooter>
                 </Card>
               </motion.div>
